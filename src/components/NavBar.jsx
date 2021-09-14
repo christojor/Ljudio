@@ -2,7 +2,11 @@ import React from 'react'
 
 const NavBar = () => {
     return ( 
-        <h1>This is a Navbar</h1>
+        <nav className="Menu">
+            <a href="#">Home</a>
+            <a href="#">Search</a>
+            <a href="#">Playlist</a>
+        </nav>
      );
 }
  
