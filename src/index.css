@@ -73,3 +73,7 @@ h1{
     width: 30vw;
     padding: 1vh 5vw;
 }
+
+.Search{
+    overflow-y:scroll;
+}
