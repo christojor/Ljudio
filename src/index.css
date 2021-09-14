@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.Navbar{
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+}
+
+.Content{
+    display: flex;
+    border: 2px solid black;
+    height: 75vh;
+}
+
+.Player{
+    height: 15vh;
+    border: 2px solid black;
+}
+
+.Playlist{
+    width: 30vw;
+    padding: 1vh 5vw;
+}
