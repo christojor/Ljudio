@@ -1,24 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 body{
     margin: 0;
     min-height: 100vh;
     overflow: hidden;
+    font-family:"Quicksand";
+}
+
+h1{
+    margin: 0.8vh;
 }
 
 .Navbar{
     display: flex;
-    justify-content: center;
     height: 10vh;
+    padding-top: 2vh;
+    border-bottom: 1px solid gray;
+}
+
+.Navbar .Logo{
+    display: flex;
+    justify-content:space-evenly;
+    width: 15vw;
+}
+
+.Navbar i{
+    font-size: 6vh;
+    color: #f1356d;
+}
+
+.Navbar  nav{
+    display: flex;
+    justify-content:space-evenly;
+    width: 80vw;
+    padding-right: 20vw;
+}
+
+.Navbar a{
+    font-size: 3vh;
+    color:white;
+    background-color: #f1356d;
+    border-radius: 8px;
+    padding: 6px;
+    text-decoration: none;
+    margin: 1vh 0 4vh 0;
 }
 
 .Content{
     display: flex;
-    border: 2px solid black;
     height: 75vh;
 }
 
 .Player{
+    display: flex;
+    justify-content: center;
     height: 15vh;
-    border: 2px solid black;
+    border-top: 2px solid gray;
+}
+
+.Player i{
+    font-size: 5vh;
+    color: #f1356d;
+    margin: 2vh 1vw 0 1vw;
+}
+
+.Player i:hover{
+    cursor: pointer;
+    color: #d3134d;
 }
 
 .Playlist{
