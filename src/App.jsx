@@ -4,10 +4,12 @@ import PlayList from './components/Playlist'
 import FindMusic from './components/FIndMusic'
 import Player from './components/Player'
 import Logo from './components/Logo'
+import Store from './Store'
 
 function App() {
 
   return (
+    <Store>
     <div className="App">
       <div className="Navbar">
         <Logo />
@@ -21,6 +23,7 @@ function App() {
         <Player />
       </div>
     </div>
+    </Store>
   )
 }
 
