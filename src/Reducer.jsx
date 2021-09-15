@@ -22,6 +22,11 @@ const Reducer = (state, action) => {
                 ...state,
                 error: action.payload
             };
+        case 'SET_PLAYING':
+            return {
+                ...state,
+                playing: action.payload
+            };
         default:
             return state;
     }

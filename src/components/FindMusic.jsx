@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { Context } from '../Store';
-import Results from './Results';
+import Songs from './Songs';
 
 const FindMusic = () => {
 
@@ -11,13 +11,10 @@ const FindMusic = () => {
         try{
             let result = await fetch('https://yt-music-api.herokuapp.com/api/yt/songs/' + searchString)
             let data = await result.json()
-            console.log(data.content)
             dispatch({type: 'SET_MUSIC', payload: data.content});
-            console.log(state.songs)
         }
         catch(error){
             dispatch({type: 'SET_ERROR', payload: error});
-            console.log(state.error)
         }
     },[searchString])
 
@@ -26,7 +23,7 @@ const FindMusic = () => {
             <input value={searchString} onChange={(e)=>setSearchString(e.target.value)} />
 
             { state.music.map(song => 
-            <Results key={song.videoId} title={song.name} artist={song.artist.name} />) }
+            <Songs key={song.videoId} song={song} />) }
         </div>
     );
 }
