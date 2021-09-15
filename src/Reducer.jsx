@@ -2,10 +2,10 @@ import React from 'react'
 
 const Reducer = (state, action) => {
     switch (action.type) {
-        case 'SET_MUSIC':
+        case 'SET_SONGS':
             return {
                 ...state,
-                music: action.payload
+                songs: action.payload
             };
         case 'ADD_MUSIC':
             return {
@@ -16,6 +16,16 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 music: state.music.filter(song => song.videoId !== action.payload)
+            };
+        case 'SET_ARTISTS':
+            return {
+                ...state,
+                artists: action.payload
+            };
+        case 'SET_ALBUMS':
+            return {
+                ...state,
+                albums: action.payload
             };
         case 'SET_ERROR':
             return {

@@ -9,8 +9,14 @@ const [state, dispatch] = useContext(Context);
     return ( 
         <div>
                 <article onClick={() => dispatch({type: 'SET_PLAYING', payload: props.song})}>
-                    <h3>{props.song.name}</h3>
-                    <p>{props.song.artist.name}</p>
+                    <div>
+                        <h3>{props.album.name}</h3>
+                        <p>{props.album.artist}</p>
+                        <p>{props.album.year}</p>
+                    </div>
+                    <div>
+                    <img src={props.album.thumbnails[0].url} />
+                    </div>
                 </article>
         </div>
      );

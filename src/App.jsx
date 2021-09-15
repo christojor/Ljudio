@@ -16,7 +16,6 @@ function App() {
         <NavBar />
       </div>
       <div className="Content">
-        <PlayList />
         <FindMusic />
       </div>
       <div className="Player">

@@ -4,6 +4,9 @@ import Reducer from './Reducer'
 
 const initialState = {
     music: [],
+    songs: [],
+    artists: [],
+    albums: [],
     playing: {},
     error: null
 };
