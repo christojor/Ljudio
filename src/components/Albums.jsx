@@ -21,5 +21,4 @@ const [state, dispatch] = useContext(Context);
         </div>
      );
 }
- // id={song.videoId} title={song.name} artist={song.artist.name}
 export default Albums;

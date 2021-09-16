@@ -8,6 +8,8 @@ const initialState = {
     artists: [],
     albums: [],
     playing: {},
+    currentPlaylist: [],
+    customPlaylist: null,
     error: null
 };
 
