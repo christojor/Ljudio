@@ -11,16 +11,16 @@ function App() {
   return (
     <Store>
     <div className="App">
-      <div className="Navbar">
+      <header className="Navbar">
         <Logo />
         <NavBar />
-      </div>
-      <div className="Content">
+      </header>
+      <main className="Content">
         <FindMusic />
-      </div>
-      <div className="Player">
+      </main>
+      <footer className="Player">
         <Player />
-      </div>
+      </footer>
     </div>
     </Store>
   )
