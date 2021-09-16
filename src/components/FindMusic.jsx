@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import { Context } from '../Store';
 import Songs from './Songs';
 import Artists from './Artists';
@@ -8,31 +8,35 @@ const FindMusic = () => {
 
     const [searchString, setSearchString] = useState('');
     const [state, dispatch] = useContext(Context);
+    const notInitialRender = useRef(false)
 
     useEffect(async () => {
-        // setTimeout(()=>{
+        if (notInitialRender.current) {
             try {
                 let result = await fetch('https://yt-music-api.herokuapp.com/api/yt/songs/' + searchString)
                 let data = await result.json()
-                dispatch({ type: 'SET_SONGS', payload: data.content});
+                dispatch({ type: 'SET_SONGS', payload: data.content });
                 console.log(state.songs)
 
                 result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artists/search+' + searchString)
                 data = await result.json()
-                dispatch({ type: 'SET_ARTISTS', payload: data.content});
+                dispatch({ type: 'SET_ARTISTS', payload: data.content });
                 console.log(state.artists)
 
                 result = await fetch('https://yt-music-api.herokuapp.com/api/yt/search/' + searchString)
                 data = await result.json()
-                dispatch({ type: 'SET_ALBUMS', payload: data.content.filter(music => music.type == 'album')});
+                dispatch({ type: 'SET_ALBUMS', payload: data.content.filter(music => music.type == 'album') });
                 console.log(state.albums)
             }
             catch (error) {
                 dispatch({ type: 'SET_ERROR', payload: error });
             }
-        //    }, 1000)
+        }
+        else {
+            notInitialRender.current = true
+        }
     }, [searchString])
-    
+
 
     return (
         <div className="FindMusic">
@@ -40,17 +44,23 @@ const FindMusic = () => {
                 <input type="text" placeholder="Search songs, artists & albums" value={searchString} onChange={(e) => setSearchString(e.target.value)} />
             </div>
             <div className="Results">
-                <div className="Songs">
-                    {state.songs.map(song =>
-                        <Songs key={song.videoId} song={song} />)}
+                <div className="BgTextSongs">
+                    <div className="Songs">
+                        {state.songs.map(song =>
+                            <Songs key={song.videoId} song={song} />)}
+                    </div>
                 </div>
-                <div className="Artists">
-                    {state.artists.map(artist =>
-                        <Artists key={artist.name} artist={artist} />)}
+                <div className="BgTextArtists">
+                    <div className="Artists">
+                        {state.artists.map(artist =>
+                            <Artists key={artist.name} artist={artist} />)}
+                    </div>
                 </div>
-                <div className="Albums">
-                    {state.albums.map(album =>
-                        <Albums key={album.browseId} album={album} />)}
+                <div className="BgTextAlbums">
+                    <div className="Albums">
+                        {state.albums.map(album =>
+                            <Albums key={album.browseId} album={album} />)}
+                    </div>
                 </div>
             </div>
         </div>
