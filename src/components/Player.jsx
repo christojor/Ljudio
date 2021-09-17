@@ -29,7 +29,11 @@ const Player = () => {
         }
       }, [progress.playedSeconds])
 
-      
+      const playSong = () =>{
+          if(state.playing.length){
+              setPlaying(true)
+          }
+      }
 
     const nextSong = () =>{
         for(var i = 0; i < state.currentPlaylist.length - 1; i++){
@@ -61,7 +65,7 @@ const Player = () => {
                     onProgress={setProgress} 
                     onEnded={ () => nextSong() }/>
                 <i className="fas fa-step-backward" onClick={() => previousSong()}></i>
-                <i className="far fa-play-circle" onClick={() => setPlaying(true)}></i>
+                <i className="far fa-play-circle" onClick={() => playSong()}></i>
                 <i className="far fa-pause-circle" onClick={() => setPlaying(false)}></i>
                 <i className="fas fa-step-forward" onClick={() => nextSong()}></i>
             </div>
