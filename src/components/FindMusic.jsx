@@ -3,12 +3,18 @@ import { Context } from '../Store';
 import Songs from './Songs';
 import Artists from './Artists';
 import Albums from './Albums';
+import { useParams } from 'react-router';
 
 const FindMusic = () => {
 
     const [searchString, setSearchString] = useState('');
     const [state, dispatch] = useContext(Context);
     const notInitialRender = useRef(false)
+    let { songId } = useParams()
+    let { artistId } = useParams()
+    let { albumId } = useParams()
+
+    console.log('Song: ' + songId + '\nArtist: ' + artistId + '\nAlbum: ' + albumId)
 
     useEffect(async () => {
         if (notInitialRender.current) {

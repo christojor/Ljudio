@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext, useEffect } from 'react'
 import ReactPlayer from 'react-player/youtube'
-import { useContext, useEffect } from 'react';
 import { Context } from '../Store';
 import CurrentSong from './CurrentSong';
 
@@ -16,8 +15,6 @@ const Player = () => {
     useEffect(() => {
         if (notInitialRender.current) {
             setPlaying(true);
-            setPlayedMinutes(Math.floor(progress.playedSeconds / 60))
-            setPlayedSeconds(duration - playedMinutes * 60)
         } else {
           notInitialRender.current = true
         }
