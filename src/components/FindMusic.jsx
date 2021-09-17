@@ -14,7 +14,17 @@ const FindMusic = () => {
     let { artistId } = useParams()
     let { albumId } = useParams()
 
-    console.log('Song: ' + songId + '\nArtist: ' + artistId + '\nAlbum: ' + albumId)
+    useEffect( () => {
+        if (songId){
+            setSearchString(songId)
+        }
+        else if (artistId){
+            setSearchString(artistId)
+        }
+        else if (albumId){
+            setSearchString(albumId)
+        }
+    },[])
 
     useEffect(async () => {
         if (notInitialRender.current) {
@@ -22,17 +32,14 @@ const FindMusic = () => {
                 let result = await fetch('https://yt-music-api.herokuapp.com/api/yt/songs/' + searchString)
                 let data = await result.json()
                 dispatch({ type: 'SET_SONGS', payload: data.content });
-                console.log(state.songs)
 
-                result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artists/search+' + searchString)
+                result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artists/' + searchString)
                 data = await result.json()
                 dispatch({ type: 'SET_ARTISTS', payload: data.content });
-                console.log(state.artists)
 
                 result = await fetch('https://yt-music-api.herokuapp.com/api/yt/search/' + searchString)
                 data = await result.json()
                 dispatch({ type: 'SET_ALBUMS', payload: data.content.filter(music => music.type == 'album') });
-                console.log(state.albums)
             }
             catch (error) {
                 dispatch({ type: 'SET_ERROR', payload: error });
@@ -43,6 +50,17 @@ const FindMusic = () => {
         }
     }, [searchString])
 
+    // useEffect(async () => {
+    //         try {
+    //             result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId)
+    //             data = await result.json()
+    //             dispatch({ type: 'SET_ARTIST', payload: data.content });
+    //             console.log(state.artist)
+    //         }
+    //         catch (error) {
+    //             dispatch({ type: 'SET_ERROR', payload: error });
+    //         }
+    // }, [])
 
     return (
         <div className="FindMusic">
@@ -59,7 +77,7 @@ const FindMusic = () => {
                 <div className="BgTextArtists">
                     <div className="Artists">
                         {state.artists.map(artist =>
-                            <Artists key={artist.name} artist={artist} />)}
+                            <Artists key={artist.browseId} artist={artist} />)}
                     </div>
                 </div>
                 <div className="BgTextAlbums">
