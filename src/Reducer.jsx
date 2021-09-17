@@ -7,20 +7,25 @@ const Reducer = (state, action) => {
                 ...state,
                 songs: action.payload
             };
-        case 'ADD_MUSIC':
+        case 'ADD_SONGS':
             return {
                 ...state,
-                music: state.music.concat(action.payload)
+                songs: state.music.concat(action.payload)
             };
-        case 'REMOVE_MUSIC':
+        case 'REMOVE_SONGS':
             return {
                 ...state,
-                music: state.music.filter(song => song.videoId !== action.payload)
+                songs: state.music.filter(song => song.videoId !== action.payload)
             };
         case 'SET_ARTISTS':
             return {
                 ...state,
                 artists: action.payload
+            };
+        case 'SET_ARTIST':
+            return {
+                ...state,
+                artist: action.payload
             };
         case 'SET_ALBUMS':
             return {
