@@ -28,7 +28,7 @@ function App() {
               <Route exact path="/">
                 <FindMusic />
               </Route>
-              <Route exact path="/track/:songId">
+              <Route exact path="/song/:songId">
                 <FindMusic />
               </Route>
               <Route exact path="/artist/:artistId">
