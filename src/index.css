@@ -27,8 +27,27 @@ body{
     scrollbar-color: #f1356d white;
 }
 
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+i{
+    margin-top: 1vh;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
 h1{
     margin: 0.8vh;
+    font-size: 5.5vh;
+}
+
+h3{
+    margin-top: 1vh;
+    padding: 0;
 }
 
 h5{
@@ -79,6 +98,7 @@ h5{
     display: flex;
     height: 15vh;
     border-top: 1px solid gray;
+    z-index: 1;
 }
 
 .Player i{
@@ -94,7 +114,7 @@ h5{
 
 .Player .CurrentSong{
     display: flex;
-    padding: 1vh 1vw;
+    padding: 1.5vh 1.5vw;
     width: 20vw;
 }
 .Player .CurrentSong p{
@@ -121,7 +141,6 @@ h5{
 .Search input{
     background-color: white;
     background-image: url('/src/searchicon.png');
-    /* background-position: 0.4vw 0.7vh; */
     background-origin: content-box;
     background-size: contain;
     background-repeat: no-repeat;
@@ -144,14 +163,37 @@ h5{
     overflow-y: auto;
     width:calc(100vw * (1/3));
     margin-left: 1vw;
+    padding: 1vh;
+}
+
+.Results p{
+    margin-top: 1vh;
+}
+
+.Results article>div:first-child{
+    width: 15vw;
+}
+
+.Results .Songs{
+    display: flex;
+    flex-direction: column;
 }
 
 .Results  .Albums{
     margin-right: 1vw;
 }
 
+.Results  .Artists{
+    margin-right: 1vw;
+}
+
+.Results .Artists>a>article{
+    border-bottom-color: white;
+}
+
 .Results img{
     height: 15vh;
+    margin-top: 1vh;
     width: auto;
 }
 
@@ -188,8 +230,9 @@ h5{
     top: 15vh;
     left: 7vw;
     z-index: -1;
-}
-.BgTextArtists {
+  }
+  
+  .BgTextArtists {
     display: flex;
     position: relative;
     width:calc(100vw * (1/3));
@@ -203,8 +246,9 @@ h5{
     top: 15vh;
     left: 7vw;
     z-index: -1;
-}
-.BgTextAlbums {
+  }
+  
+  .BgTextAlbums {
     display: flex;
     position: relative;
     width:calc(100vw * (1/3));
@@ -218,4 +262,55 @@ h5{
     top: 15vh;
     left: 7vw;
     z-index: -1;
+  }
+  
+  .Artist{
+    display: flex;
+    width: 94vw;
+    margin: 0 2vw;
+    overflow:hidden;
+}
+
+.Artist .Info{
+    display: flex;
+    flex-direction: column;
+    width:calc(100vw * (2/3));
+    overflow-y: scroll;
+    padding-right: 1vw;
+}
+
+.Artist .Info img{
+    height: auto;
+    width: 55vw;
+}
+
+.Artist .ArtistAlbums{
+    display: flex;
+    flex-direction: column;
+    width:calc(100vw * (1/3));
+    overflow-y: scroll;
+}
+
+.Artist article{
+    border: 1px solid gray;
+    border-bottom-color: white;
+    padding: 1vh 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Artist article img{
+    height: 15vh;
+    margin-top: 1vh;
+    width: auto;
+}
+.Artist article>div:first-child{
+    width: 15vw;
+}
+
+.AlbumPage{
+    margin: 2vh 40vw;
+}
+.AlbumPage article{
+    width: 50vw;
 }
