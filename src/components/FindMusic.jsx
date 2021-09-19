@@ -50,18 +50,6 @@ const FindMusic = () => {
         }
     }, [searchString])
 
-    // useEffect(async () => {
-    //         try {
-    //             result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId)
-    //             data = await result.json()
-    //             dispatch({ type: 'SET_ARTIST', payload: data.content });
-    //             console.log(state.artist)
-    //         }
-    //         catch (error) {
-    //             dispatch({ type: 'SET_ERROR', payload: error });
-    //         }
-    // }, [])
-
     return (
         <div className="FindMusic">
             <div className="Search">
@@ -83,7 +71,7 @@ const FindMusic = () => {
                 <div className="BgTextAlbums">
                     <div className="Albums">
                         {state.albums.map(album =>
-                            <Albums key={album.browseId} album={album} />)}
+                            <Albums key={album.browseId} album={album} artist={album.artist}/>)}
                     </div>
                 </div>
             </div>

@@ -1,10 +1,22 @@
 import React from "react";
+import { useContext } from "react";
+import { Context } from "../Store";
 
 const ShareLink = (props) => {
 
+    const [state, dispatch] = useContext(Context);
+
+    let link = ''
+
     const copyLink = () => {
-        let link = `${window.location.host}/${props.type}/${props.id}`
-        navigator.clipboard.writeText(link);
+        if(props.type == 'album' || props.type == 'Album')
+        {
+            link = `${window.location.host}/${props.type}/${props.artist}/${props.id}`
+        }
+        else{
+            link = `${window.location.host}/${props.type}/${props.id}`
+        }
+        navigator.clipboard.writeText(link)
         alert("Link copied to clipboard!")
     }
 

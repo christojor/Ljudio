@@ -14,8 +14,13 @@ const setCurrentSongAndPlaylist = () =>{
 
     return ( 
         <article onClick={() => setCurrentSongAndPlaylist()}>
+            <div>
                 <h3>{props.song.name}</h3>
+                <h6>Click to play &gt;&gt;</h6>
+            </div>
+            <div>
                 <p>{props.song.artist.name}</p>
+            </div>
                 <ShareLink type={props.song.type} id={props.song.videoId} />
         </article>
      );
