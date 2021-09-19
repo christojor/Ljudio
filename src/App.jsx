@@ -4,6 +4,8 @@ import PlayList from './components/Playlist'
 import FindMusic from './components/FindMusic'
 import Player from './components/Player'
 import Logo from './components/Logo'
+import Artist from './components/Artist'
+import Album from './components/Album'
 import NotFound from './components/NotFound'
 import Store from './Store'
 import {
@@ -32,10 +34,10 @@ function App() {
                 <FindMusic />
               </Route>
               <Route exact path="/artist/:artistId">
-                <FindMusic />
+                <Artist />
               </Route>
-              <Route exact path="/album/:albumId">
-                <FindMusic />
+              <Route exact path="/album/:artistName/:albumId">
+                <Album />
               </Route>
               <Route exact path="/playlists">
                 <PlayList />
