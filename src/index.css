@@ -36,12 +36,12 @@ i{
     margin-top: 1vh;
 }
 
-i:hover{
+article i:hover{
     cursor: pointer;
 }
 
 h1{
-    margin: 0.8vh;
+    margin: 0.9vh;
     font-size: 5.5vh;
 }
 
@@ -52,6 +52,10 @@ h3{
 
 h5{
     margin: 0 0 0 1vw;
+}
+
+p{
+    font-size: 2.2vh;
 }
 
 .Navbar{
@@ -72,21 +76,25 @@ h5{
     color: #f1356d;
 }
 
-.Navbar  nav{
+.Navbar nav{
     display: flex;
-    justify-content:space-evenly;
     width: 80vw;
     padding-right: 20vw;
+}
+
+.Navbar nav>div{
+    margin-left: 31vw;
+    padding-top: 3vh;
 }
 
 .Navbar a{
     font-size: 3vh;
     color:white;
     background-color: #f1356d;
-    border-radius: 8px;
-    padding: 6px;
+    border-radius: 1vw;
+    padding: 0.5vw;
     text-decoration: none;
-    margin: 1vh 0 4vh 0;
+    margin: 2vh 2vw 3vh 0;
 }
 
 .Content{
@@ -123,7 +131,17 @@ h5{
 }
 
 .Player .Controls{
+    display: flex;
+    flex-direction: column;
     margin-left: 20vw;
+}
+
+.Player .Progress{
+    display: flex;
+}
+
+.Player .PlayerButtons{
+    display: flex;
 }
 
 .Playlist{
@@ -185,10 +203,6 @@ h5{
 
 .Results  .Artists{
     margin-right: 1vw;
-}
-
-.Results .Artists>a>article{
-    border-bottom-color: white;
 }
 
 .Results img{
@@ -291,6 +305,10 @@ h5{
     overflow-y: scroll;
 }
 
+.Artist .ArtistAlbums article:hover{
+    cursor: pointer;
+}
+
 .Artist article{
     border: 1px solid gray;
     border-bottom-color: white;
@@ -314,3 +332,75 @@ h5{
 .AlbumPage article{
     width: 50vw;
 }
+
+.Spinner{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.Spinner>img{
+    height: 30vh;
+    width: auto;
+    padding-top: 15vh;
+}
+
+.Playlists h2{
+    margin: 3.6vh 0 1vh 3.5vh;
+    padding: 0;
+}
+
+  /* Slider */
+
+.SlideContainer {
+    display: flex;
+    width: 40vw;
+    margin-left: -3.7vw;
+  
+  }
+
+  .SlideContainer>div{
+      width: 2vw;
+      padding: 0 1vh;
+  }
+
+  .SlideContainer>div>p{
+      margin: 1.6vh 0 0 0;
+  }
+  
+  .Slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14.3vw;
+    height: 2vh;
+    background: #f1356d;
+    outline: none;
+    opacity: 0.9;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 2vh;
+    margin-left: 2vw;
+  }
+  
+  .Slider:hover {
+    opacity: 1;
+  }
+  
+  .Slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1vw;
+    height: 1vh;
+    background: white;
+    border-color: white;
+    cursor: pointer;
+  }
+  
+  .Slider::-moz-range-thumb {
+    width: 1vw;
+    height: 1vh;
+    background: white;
+    border-color: white;
+    cursor: pointer;
+  }
+

@@ -12,7 +12,6 @@ const Albums = (props) => {
     const handleClick = () => history.push('/album/' + encodeURIComponent(props.artist) +'/' + props.album.browseId);
 
     return (
-        <div>
             <article onClick={ () => handleClick() }>
                 <div>
                     <h3>{props.album.name}</h3>
@@ -24,7 +23,6 @@ const Albums = (props) => {
                 </div>
                     <ShareLink type={props.album.type} id={props.album.browseId} artist={props.artist} />
             </article>
-        </div>
     );
 }
 export default Albums;

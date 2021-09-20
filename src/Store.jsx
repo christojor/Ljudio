@@ -11,6 +11,7 @@ const initialState = {
     playing: {},
     currentPlaylist: [],
     customPlaylist: null,
+    playedTime: null,
     error: null
 };
 
