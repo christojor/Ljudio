@@ -7,10 +7,6 @@ const ProgressSlider = (props) => {
     const [duration, setDuration] = useState('00:00:00')
     const notInitialRender = useRef(false)
 
-    const handleChange = (e, newValue) => {
-        setValue(newValue);
-    }
-
     useEffect(() => {
         if (notInitialRender.current) {
             if (props.value != 0) {
@@ -38,12 +34,16 @@ const ProgressSlider = (props) => {
         return hours + ':' + minutes + ':' + seconds
     }
 
+    const handleChange = (event) => {
+        props.onChange(event.target.value);
+    }
+
     return (
         <div className="SlideContainer">
             <div>
                 <p>{playedTime}</p>
             </div>
-            <input type="range" min="0" max={props.max} value={props.value} className="Slider" id="songSlider" readOnly />
+            <input type="range" min="0" max={props.max} value={props.value} className="Slider" id="songSlider" onChange= {handleChange} />
             <div>
                 <p>{duration}</p>
             </div>

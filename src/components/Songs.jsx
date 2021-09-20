@@ -25,8 +25,8 @@ const Songs = (props) => {
             </div>
             <div className="ResultOptions">
             <ShareLink type={props.song.type} id={props.song.videoId} />
-            <i class="fas fa-plus-square" title="Add to queue"></i>
-            <i class="fas fa-save" title="Save to playlist"></i>
+            <i className="fas fa-plus-square" title="Add to queue"></i>
+            <i className="fas fa-save" title="Save to playlist"></i>
             </div>
         </article>
     );
