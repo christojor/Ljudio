@@ -3,20 +3,32 @@ import { useParams } from "react-router";
 import { Context } from "../Store";
 import ShareLink from "./ShareLink";
 import Albums from "./Albums";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Artist = () => {
     const [state, dispatch] = useContext(Context);
     let { artistId } = useParams();
     const [thumbnailUrl, setThumbnailUrl] = useState();
     const [albums, setAlbums] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(async () => {
         let result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId)
         let data = await result.json()
+        
+        // setThumbnailUrl('/src/no-image.png')
         setThumbnailUrl(data.thumbnails[0].url)
+
         setAlbums(data.products.albums.content)
         dispatch({ type: 'SET_ARTIST', payload: data });
+        setIsLoading(false)
     }, [])
+
+    if(isLoading){
+        return(
+            <LoadingSpinner />
+        )
+    }
 
     return (
         <article className="Artist">

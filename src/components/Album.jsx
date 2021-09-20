@@ -1,15 +1,16 @@
 import React, { useState, useContext, useEffect, useRef } from 'react'
 import { useParams } from 'react-router';
 import { Context } from '../Store';
-import ShareLink from './ShareLink';
+import LoadingSpinner from './LoadingSpinner';
 
 const Album = () => {
     let { artistName, albumId } = useParams()
     const notInitialRender = useRef(false)
+    const [state, dispatch] = useContext(Context)
     let [albums, setAlbums] = useState()
     let [album, setAlbum] = useState()
     let [artist, setArtist] = useState()
-    const [state, dispatch] = useContext(Context);
+    let [isLoading, setIsLoading] = useState(true);
 
     useEffect(async () => {
         try {
@@ -36,6 +37,7 @@ const Album = () => {
 
                 const [album] = data.products.albums.content.filter(album => album.browseId == albumId)
                 setAlbum(album)
+                setIsLoading(false)
             }
             catch (error) {
                 dispatch({ type: 'SET_ERROR', payload: error });
@@ -47,7 +49,12 @@ const Album = () => {
         }
     }, [artist])
 
-    if (album) {
+    if(isLoading){
+        return(
+            <LoadingSpinner />
+        )}
+
+    if (artist && album) {
         return (
             <div className="AlbumPage">
                 <article>
@@ -65,7 +72,7 @@ const Album = () => {
     }
     else {
         return (
-            <div>
+            <div className="Spinner">
                 <h1>Unfortunately the album could not be found...</h1>
             </div>
         );
