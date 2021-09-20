@@ -38,6 +38,7 @@ i{
 
 article i:hover{
     cursor: pointer;
+    color: black;
 }
 
 h1{
@@ -69,6 +70,7 @@ p{
     display: flex;
     justify-content:space-evenly;
     width: 15vw;
+    margin-left: 1vw;
 }
 
 .Navbar i{
@@ -188,7 +190,7 @@ p{
     margin-top: 1vh;
 }
 
-.Results article>div:first-child{
+.Results article>div>div:first-child{
     width: 15vw;
 }
 
@@ -209,6 +211,15 @@ p{
     height: 15vh;
     margin-top: 1vh;
     width: auto;
+}
+
+.Results article>div{
+    display: flex;
+}
+
+.Results article .ResultOptions{
+    display: flex;
+    flex-direction: column;
 }
 
   .Results article{
@@ -322,7 +333,11 @@ p{
     margin-top: 1vh;
     width: auto;
 }
-.Artist article>div:first-child{
+.Artist article>div{
+    display: flex;
+}
+
+.Artist .ArtistAlbums>article>div>div:first-child{
     width: 15vw;
 }
 
