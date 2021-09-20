@@ -2,32 +2,23 @@ import React, { useState, useRef, useContext, useEffect } from 'react'
 import ReactPlayer from 'react-player/youtube'
 import { Context } from '../Store';
 import CurrentSong from './CurrentSong';
+import ProgressSlider from './ProgressSlider';
 
 const Player = () => {
     const [state, dispatch] = useContext(Context);
     const [playing, setPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
     const [progress, setProgress] = useState({playedSeconds: 0});
-    const [playedMinutes, setPlayedMinutes] = useState(0);
-    const [playedSeconds, setPlayedSeconds] = useState(0);
     const notInitialRender = useRef(false)
 
     useEffect(() => {
         if (notInitialRender.current) {
-            setPlaying(true);
+            setPlaying(true)
         } else {
           notInitialRender.current = true
         }
       }, [state.playing])
 
-      useEffect(() => {
-        if (notInitialRender.current) {
-            setPlayedMinutes(Math.floor(progress.playedSeconds / 60))
-            setPlayedSeconds((progress.playedSeconds - playedMinutes * 60).toFixed())
-        } else {
-          notInitialRender.current = true
-        }
-      }, [progress.playedSeconds])
 
       const playSong = () =>{
           if(state.playing.length){
@@ -64,13 +55,17 @@ const Player = () => {
                     onDuration={setDuration}
                     onProgress={setProgress} 
                     onEnded={ () => nextSong() }/>
+                    <div className="PlayerButtons">
                 <i className="fas fa-step-backward" onClick={() => previousSong()}></i>
                 <i className="far fa-play-circle" onClick={() => playSong()}></i>
                 <i className="far fa-pause-circle" onClick={() => setPlaying(false)}></i>
                 <i className="fas fa-step-forward" onClick={() => nextSong()}></i>
+                </div>
+                <div className="Progress">
+                    <ProgressSlider max={duration} value={progress.playedSeconds}/>
+                </div>
             </div>
-            <div><p>Duration: {((duration / 60)).toFixed(2)}<br/>
-            Played: {playedMinutes}:{playedSeconds}</p></div>
+
         </>
     );
 }
