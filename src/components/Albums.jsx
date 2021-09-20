@@ -9,10 +9,11 @@ const Albums = (props) => {
     const history = useHistory();
     const [album, setAlbum] = useState(props);
 
-    const handleClick = () => history.push('/album/' + encodeURIComponent(props.artist) +'/' + props.album.browseId);
+    const handleClick = () => history.push('/album/' + encodeURIComponent(props.artist) + '/' + props.album.browseId);
 
     return (
-            <article onClick={ () => handleClick() }>
+        <article>
+            <div onClick={() => handleClick()}>
                 <div>
                     <h3>{props.album.name}</h3>
                     <p>{props.album.artist}</p>
@@ -21,8 +22,9 @@ const Albums = (props) => {
                 <div>
                     <img src={props.album.thumbnails[0].url} />
                 </div>
-                    <ShareLink type={props.album.type} id={props.album.browseId} artist={props.artist} />
-            </article>
+            </div>
+            <ShareLink type={props.album.type} id={props.album.browseId} artist={props.artist} />
+        </article>
     );
 }
 export default Albums;
