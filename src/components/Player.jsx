@@ -37,7 +37,7 @@ const Player = () => {
     }
 
     const previousSong = () =>{
-        for(var i = 0; i < state.currentPlaylist.length - 1; i++){
+        for(var i = 0; i < state.currentPlaylist.length; i++){
             if(state.currentPlaylist[i].videoId == state.playing.videoId && i != 0){
                 dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i-1]})
             }
