@@ -7,16 +7,6 @@ const Reducer = (state, action) => {
                 ...state,
                 songs: action.payload
             };
-        case 'ADD_SONGS':
-            return {
-                ...state,
-                songs: state.music.concat(action.payload)
-            };
-        case 'REMOVE_SONGS':
-            return {
-                ...state,
-                songs: state.music.filter(song => song.videoId !== action.payload)
-            };
         case 'SET_ARTISTS':
             return {
                 ...state,
@@ -46,6 +36,31 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 currentPlaylist: action.payload
+            };
+        case 'ADD_TO_PLAYLIST':
+            return {
+                ...state,
+                currentPlaylist: state.currentPlaylist.concat(action.payload)
+            };
+        case 'REMOVE_FROM_PLAYLIST':
+            return {
+                ...state,
+                currentPlaylist: state.currentPlaylist.filter(song => song.videoId !== action.payload.videoId)
+            };
+        case 'SET_CUSTOM_PLAYLIST':
+            return {
+                ...state,
+                customPlaylist: action.payload
+            };
+        case 'ADD_TO_CUSTOM_PLAYLIST':
+            return {
+                ...state,
+                customPlaylist: state.customPlaylist.concat(action.payload)
+            };
+        case 'REMOVE_FROM_CUSTOM_PLAYLIST':
+            return {
+                ...state,
+                customPlaylist: state.customPlaylist.filter(song => song.videoId !== action.payload.videoId)
             };
         default:
             return state;

@@ -10,7 +10,7 @@ const initialState = {
     albums: [],
     playing: {},
     currentPlaylist: [],
-    customPlaylist: null,
+    customPlaylist: [],
     playedTime: null,
     error: null
 };
