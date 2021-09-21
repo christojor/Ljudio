@@ -365,6 +365,10 @@ p{
     padding: 0;
 }
 
+.Playlists>div>p{
+    margin: 3.6vh 0 1vh 3.5vh;
+}
+
   /* Slider */
 
 .SlideContainer {
