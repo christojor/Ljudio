@@ -16,10 +16,17 @@ const Artist = () => {
         let result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId)
         let data = await result.json()
         
-        // setThumbnailUrl('/src/no-image.png')
-        setThumbnailUrl(data.thumbnails[0].url)
+        if (data['thumbnails']){
+            setThumbnailUrl(data.thumbnails[0].url)
+        }
+        else{
+            setThumbnailUrl('/src/no-image.png')
+        }
 
-        setAlbums(data.products.albums.content)
+        if (data['products']){
+            setAlbums(data.products.albums.content)
+        }
+
         dispatch({ type: 'SET_ARTIST', payload: data });
         setIsLoading(false)
     }, [])
