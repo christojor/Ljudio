@@ -376,8 +376,9 @@ p{
     margin-top: 1vh;
     width: auto;
 }
-.Artist article>div{
+.Artist .ArtistAlbums>article>div{
     display: flex;
+    width: 100%;
 }
 
 .Artist .ArtistAlbums>article>div>div:first-child{
