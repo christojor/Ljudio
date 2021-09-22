@@ -279,6 +279,10 @@ p{
       cursor: pointer;
   }
 
+  .Results article:hover + article{
+    border-top-color: white;
+}
+
   .Results article h6{
       margin: 0;
   }
