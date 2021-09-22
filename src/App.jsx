@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NavBar from './components/NavBar'
 import PlayList from './components/Playlist'
 import FindMusic from './components/FindMusic'
@@ -11,8 +11,7 @@ import Store from './Store'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom"
 
 function App() {

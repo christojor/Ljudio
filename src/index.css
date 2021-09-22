@@ -34,6 +34,7 @@ a, a:hover, a:focus, a:active {
 
 i{
     margin-top: 1vh;
+    font-size: 2.5vh;
 }
 
 article i:hover{
@@ -48,11 +49,17 @@ h1{
 
 h3{
     margin-top: 1vh;
+    font-size: 2.5vh;
     padding: 0;
 }
 
 h5{
     margin: 0 0 0 1vw;
+    font-size: 2vh;
+}
+
+h6{
+    font-size: 1.5vh;
 }
 
 p{
@@ -68,7 +75,6 @@ p{
 
 .Navbar .Logo{
     display: flex;
-    justify-content:space-evenly;
     width: 15vw;
     margin-left: 1vw;
 }
@@ -108,13 +114,12 @@ p{
     display: flex;
     height: 15vh;
     border-top: 1px solid gray;
-    z-index: 1;
 }
 
 .Player i{
     font-size: 5vh;
     color: #f1356d;
-    margin: 2vh 1vw 0 1vw;
+    margin: 0 1vw 0 1vw;
 }
 
 .Player i:hover{
@@ -124,7 +129,7 @@ p{
 
 .Player .CurrentSong{
     display: flex;
-    padding: 1.5vh 1.5vw;
+    padding: 1.5vh 1.5vw 1.5vh;
     width: 20vw;
 }
 .Player .CurrentSong p{
@@ -132,18 +137,22 @@ p{
     font-size: 2vh;
 }
 
+.Player .CurrentSong img{
+    width: auto;
+    height: 10vh;
+}
+
 .Player .Controls{
     display: flex;
     flex-direction: column;
-    margin-left: 20vw;
-}
-
-.Player .Progress{
-    display: flex;
+    justify-content: center;
+    width: 57vw;
 }
 
 .Player .PlayerButtons{
     display: flex;
+    justify-content: center;
+    margin-top: -1vh;
 }
 
 .Playlist{
@@ -190,13 +199,26 @@ p{
     margin-top: 1vh;
 }
 
+/* Header Div */
 .Results article>div>div:first-child{
     width: 15vw;
+}
+/* Image Div */
+.Results article>div>div:nth-child(2){
+    width: 100%;
 }
 
 .Results .Songs{
     display: flex;
     flex-direction: column;
+}
+
+.Results .Songs article>div>div:first-child{
+    width: 15vw;
+}
+
+.Results .Songs article>div>div:nth-child(2){
+    width: 10vw;
 }
 
 .Results  .Albums{
@@ -208,18 +230,35 @@ p{
 }
 
 .Results img{
-    height: 15vh;
-    margin-top: 1vh;
-    width: auto;
+    height: auto;
+    width: 8vw;
+    margin: 1vh 0 0 3vw;
 }
 
 .Results article>div{
     display: flex;
 }
 
-.Results article .ResultOptions{
+.Results .ResultOptions{
     display: flex;
     flex-direction: column;
+}
+
+.Results .ResultOptions i{
+    margin-right: 1vw;
+}
+
+.Results .PlaylistSong .ResultOptions{
+    flex-direction: row;
+}
+
+.Results .Songs .PlaylistSong>div>div:first-child {
+    width: 20vw;
+    padding-right: 0.5vw;
+}
+
+.Results .Songs .PlaylistSong>div>div:nth-child(2) {
+    width: auto
 }
 
   .Results article{
@@ -238,6 +277,10 @@ p{
       border: 1px solid #d3134d;
       color: #d3134d;
       cursor: pointer;
+  }
+
+  .Results article h6{
+      margin: 0;
   }
 
   /* Background Texts */
@@ -369,17 +412,22 @@ p{
     margin: 3.6vh 0 1vh 3.5vh;
 }
 
+.Playlists .PlaylistSong{
+    display: flex;
+    flex-direction: column;
+}
+
   /* Slider */
 
 .SlideContainer {
     display: flex;
-    width: 40vw;
-    margin-left: -3.7vw;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1vh;
   
   }
 
   .SlideContainer>div{
-      width: 2vw;
       padding: 0 1vh;
   }
 
@@ -390,7 +438,7 @@ p{
   .Slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 14.3vw;
+    width: 100%;
     height: 2vh;
     background: #f1356d;
     outline: none;
@@ -398,7 +446,7 @@ p{
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin-top: 2vh;
-    margin-left: 2vw;
+
   }
   
   .Slider:hover {
@@ -423,3 +471,158 @@ p{
     cursor: pointer;
   }
 
+  @media screen and (orientation: portrait) {
+
+    h1{
+        margin: 0.9vh;
+        font-size: 5.5vw;
+    }
+
+    .Logo h1{
+        margin: 0.9vh;
+        font-size: 8vw;
+    }
+
+    h2{
+        margin: 0.9vh;
+        font-size: 5.5vw;
+    }
+    
+    
+    h3{
+        margin-top: 1vh;
+        font-size: 1.6vw;
+        padding: 0;
+    }
+
+    h4{
+        margin-top: 1vh;
+        font-size: 1vw;
+        padding: 0;
+    }
+    
+    h5{
+        margin: 0 0 0 1vw;
+        font-size: 2.2vw;
+    }
+    
+    h6{
+        font-size: 1vw;
+    }
+
+    p{
+        font-size: 1.3vw;
+    }
+
+    .Player .Controls p{
+        font-size: 2.3vw;
+        padding-top: 0.4vh;
+    }
+
+    .Player .CurrentSong p{
+        font-size: 2vw;
+        padding-top: 0.4vh;
+    }
+
+    i{
+        font-size: 2.5vw;
+    }
+
+    .Player .Controls{
+        margin-left: 3vw;
+    }
+
+    .Search input{
+        text-indent: 7vw;
+    }
+
+    .Results article{
+        padding: 0.5vh 0.5vw;
+    }
+
+    .Results .ResultOptions{
+        width: 2vw;
+    }
+
+    .Results article>div>div:first-child{
+        width: 15vw;
+    }
+
+    .Results article>div>div:nth-child(2){
+        width: 100%;
+    }
+
+    .Results .Songs article>div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Results .Songs article>div>div:first-child{
+        width: 15vw;
+    }
+
+    .Results img{
+        max-width:100%;
+        max-height:100%;
+    }
+
+    .Results .Albums img{
+        max-width:100%;
+        max-height:100%;
+    }
+
+    .Artist .ArtistAlbums img{
+        height: 5vh;
+        width: auto;
+    }
+
+    .Player .CurrentSong{
+        width: 30vw;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-size: 2vw;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+        font-size: 2vw;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+        font-size: 2vw;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        font-size: 2vw;
+      }
+    }
+
+  /* iPhone 6/7/8 */
+  @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+    
+    .Player .Controls .PlayerButtons i{
+        font-size: 7vw;
+    }
+
+    .Player .CurrentSong{
+        width: 40vw;
+    }
+
+    .Player .Controls{
+        width: 57vw;
+        margin: 0;
+    }
+
+    .Artist .Info .Description{
+        padding-right: 1vh;
+    }
+
+    .Artist .Info .Description p{
+        font-size: 2vw;
+    }
+
+    .Artist .Info h3{
+        font-size: 3vw;
+    }
+
+    .Artist .Info .Description h4{
+        font-size: 2vw;
+    }
+}

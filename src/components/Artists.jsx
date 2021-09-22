@@ -17,7 +17,6 @@ const Artists = (props) => {
             <div onClick={() => handleClick()}>
                 <div>
                     <h3>{props.artist.name}</h3>
-                    <h6>Click for more info &gt;&gt;</h6>
                 </div>
                 <div>
                     <img src={props.artist.thumbnails[1].url}></img>

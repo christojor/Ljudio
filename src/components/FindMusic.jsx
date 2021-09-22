@@ -53,7 +53,7 @@ const FindMusic = () => {
     return (
         <div className="FindMusic">
             <div className="Search">
-                <input type="text" placeholder="Search songs, artists & albums" value={searchString} onChange={(e) => setSearchString(e.target.value)} />
+                <input type="text" placeholder="Find songs, artists & albums" value={searchString} onChange={(e) => setSearchString(e.target.value)} />
             </div>
             <div className="Results">
                 <div className="BgTextSongs">

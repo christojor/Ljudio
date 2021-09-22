@@ -36,11 +36,10 @@ const CustomPlaylist = (props) => {
     }
 
     return (
-        <article>
+        <article className="PlaylistSong">
             <div onClick={() => setCurrentSongAndPlaylist()}>
                 <div>
                     <h3>{props.song.name}</h3>
-                    <h6>Click to play &gt;&gt;</h6>
                 </div>
                 <div>
                     <p>{props.song.artist.name}</p>

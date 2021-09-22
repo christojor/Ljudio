@@ -70,9 +70,7 @@ const Player = () => {
                 <i className="far fa-pause-circle" onClick={() => setPlaying(false)}></i>
                 <i className="fas fa-step-forward" onClick={() => nextSong()}></i>
                 </div>
-                <div className="Progress">
                     <ProgressSlider max={duration} value={progress.playedSeconds} onChange={(e) => { onChange(e) }}/>
-                </div>
             </div>
 
         </>
