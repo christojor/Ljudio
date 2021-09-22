@@ -205,7 +205,7 @@ p{
 }
 /* Image Div */
 .Results article>div>div:nth-child(2){
-    width: 100%;
+    width: 10vw;
 }
 
 .Results .Songs{
@@ -231,7 +231,7 @@ p{
 
 .Results img{
     height: auto;
-    width: 8vw;
+    width: 6vw;
     margin: 1vh 0 0 3vw;
 }
 
@@ -391,6 +391,11 @@ p{
     width: 50vw;
 }
 
+.AlbumPage img{
+    width: auto;
+    height: 20vh;
+}
+
 .Spinner{
     display: flex;
     justify-content: center;
@@ -471,16 +476,32 @@ p{
     cursor: pointer;
   }
 
+  @media only screen and (max-width: 940px) {
+    .Results article  h3{
+        font-size: 1.5vw;
+    }
+    .Results article>div>div:first-child{
+        width: 10vw;
+    }
+
+  }
+
+  @media screen and (orientation: landscape){
+    .Artist .Info h3{
+        font-size: 4vh;
+    }
+
+    .Artist .Info h4{
+        font-size: 3vh;
+    }
+      
+  }
+
   @media screen and (orientation: portrait) {
 
     h1{
         margin: 0.9vh;
-        font-size: 5.5vw;
-    }
-
-    .Logo h1{
-        margin: 0.9vh;
-        font-size: 8vw;
+        font-size: 5.5vh;
     }
 
     h2{
@@ -545,11 +566,11 @@ p{
     }
 
     .Results article>div>div:first-child{
-        width: 15vw;
+        width: 10vw;
     }
 
     .Results article>div>div:nth-child(2){
-        width: 100%;
+        width: 10vw;
     }
 
     .Results .Songs article>div{
@@ -559,11 +580,6 @@ p{
 
     .Results .Songs article>div>div:first-child{
         width: 15vw;
-    }
-
-    .Results img{
-        max-width:100%;
-        max-height:100%;
     }
 
     .Results .Albums img{
@@ -593,6 +609,65 @@ p{
         font-size: 2vw;
       }
     }
+
+  /* Galaxy S9 */
+  @media only screen and (max-width: 360px) and (orientation: portrait){
+          .Player .Controls .PlayerButtons i{
+        font-size: 7vw;
+    }
+
+    .Player .CurrentSong{
+        width: 35vw;
+    }
+
+    .Player .Controls{
+        width: 52vw;
+        margin: 0;
+    }
+
+    .Player .Controls p{
+        font-size: 2.2vw;
+    }
+
+    .Artist .Info .Description{
+        padding-right: 1vh;
+    }
+
+    .Artist .Info .Description p{
+        font-size: 2vw;
+    }
+
+    .Artist .Info h3{
+        font-size: 3vw;
+    }
+
+    .Artist .Info .Description h4{
+        font-size: 2vw;
+    }
+
+    .AlbumPage{
+        margin: 2vh 20vw;
+    }
+
+    .AlbumPage  h3{
+        font-size: 2vh;
+    }
+
+    .AlbumPage  p{
+        font-size: 1.5vh;
+    }
+
+    .AlbumPage  img{
+        height: 20vh;
+    }
+
+    .Logo > h1
+    {
+        font-size: 4vh;
+        margin-top: 2vh;
+    }
+
+}
 
   /* iPhone 6/7/8 */
   @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
@@ -624,5 +699,34 @@ p{
 
     .Artist .Info .Description h4{
         font-size: 2vw;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    
+    .Logo  h1{
+        margin-top: 0.5vh;
+    }
+}
+
+@media only screen and (min-device-width : 800px) and (max-device-width : 1280px) and (orientation : portrait) {
+    
+    .Logo  h1{
+        margin-top: 1.5vh;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+    .Logo h1{
+        font-size: 4vh;
+        margin-top: 2vh;
+    }
+}
+
+@media only screen and (min-device-width : 411px) and (max-device-width : 823px) and (orientation : portrait) {
+    
+    .Logo h1{
+        font-size: 4vh;
+        margin-top: 2vh;
     }
 }
