@@ -23,13 +23,13 @@ const Player = () => {
 
 
       const playSong = () =>{
-          if(state.playing.length){
+          if(Object.keys(state.playing).length !== 0){
               setPlaying(true)
           }
       }
 
     const nextSong = () =>{
-        for(var i = 0; i < state.currentPlaylist.length - 1; i++){
+        for(let i = 0; i < state.currentPlaylist.length - 1; i++){
             if(state.currentPlaylist[i].videoId == state.playing.videoId){
                 dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i+1]})
             }
@@ -37,7 +37,7 @@ const Player = () => {
     }
 
     const previousSong = () =>{
-        for(var i = 0; i < state.currentPlaylist.length; i++){
+        for(let i = 0; i < state.currentPlaylist.length; i++){
             if(state.currentPlaylist[i].videoId == state.playing.videoId && i != 0){
                 dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i-1]})
             }
