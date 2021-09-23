@@ -43,7 +43,7 @@ const ProgressSlider = (props) => {
             <div>
                 <p>{playedTime}</p>
             </div>
-            <input type="range" min="0" max={props.max} value={props.value} className="Slider" id="songSlider" onChange= {handleChange} />
+            <input type="range" min="0" max={props.max} value={props.value} className="Slider" id="songSlider" onChange={handleChange} />
             <div>
                 <p>{duration}</p>
             </div>

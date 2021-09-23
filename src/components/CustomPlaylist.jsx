@@ -7,10 +7,6 @@ const CustomPlaylist = (props) => {
 
     const [state, dispatch] = useContext(Context)
 
-    // useEffect(() => {
-
-    // }, [state.customPlaylist])
-
     const setCurrentSongAndPlaylist = () => {
         dispatch({ type: 'SET_PLAYING', payload: props.song })
         dispatch({ type: 'SET_PLAYLIST', payload: [...state.customPlaylist] })

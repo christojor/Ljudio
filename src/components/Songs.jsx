@@ -12,7 +12,7 @@ const Songs = (props) => {
         dispatch({ type: 'SET_PLAYLIST', payload: [...state.songs] })
     }
 
-    const addSongToPlayList = () =>{
+    const addSongToPlayList = () => {
         dispatch({ type: 'ADD_TO_CUSTOM_PLAYLIST', payload: props.song })
     }
 
@@ -27,8 +27,8 @@ const Songs = (props) => {
                 </div>
             </div>
             <div className="ResultOptions">
-            <ShareLink type={props.song.type} id={props.song.videoId} />
-            <i className="fas fa-plus-square" title="Add to playlist" onClick={ () => addSongToPlayList()}></i>
+                <ShareLink type={props.song.type} id={props.song.videoId} />
+                <i className="fas fa-plus-square" title="Add to playlist" onClick={() => addSongToPlayList()}></i>
             </div>
         </article>
     );

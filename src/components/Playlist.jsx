@@ -5,7 +5,7 @@ import CustomPlaylist from './CustomPlaylist';
 const PlayList = () => {
     const [state, dispatch] = useContext(Context);
 
-    if(state.customPlaylist.length){
+    if (state.customPlaylist.length) {
         return (
             <div className="Playlists">
                 <div>
@@ -20,18 +20,19 @@ const PlayList = () => {
                     </div>
                 </div>
             </div>
-        )}
-    else{
+        )
+    }
+    else {
         return (
             <div className="Playlists">
                 <div>
                     <h2>Custom Playlist is empty</h2>
                     <p>Search for songs and add them to the playlist.</p>
                 </div>
-                </div>
+            </div>
         )
     }
-    
+
 }
 
 export default PlayList;

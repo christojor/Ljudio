@@ -14,17 +14,17 @@ const FindMusic = () => {
     let { artistId } = useParams()
     let { albumId } = useParams()
 
-    useEffect( () => {
-        if (songId){
+    useEffect(() => {
+        if (songId) {
             setSearchString(songId)
         }
-        else if (artistId){
+        else if (artistId) {
             setSearchString(artistId)
         }
-        else if (albumId){
+        else if (albumId) {
             setSearchString(albumId)
         }
-    },[])
+    }, [])
 
     useEffect(async () => {
         if (notInitialRender.current) {
@@ -71,7 +71,7 @@ const FindMusic = () => {
                 <div className="BgTextAlbums">
                     <div className="Albums">
                         {state.albums.map(album =>
-                            <Albums key={album.browseId} album={album} artist={album.artist}/>)}
+                            <Albums key={album.browseId} album={album} artist={album.artist} />)}
                     </div>
                 </div>
             </div>

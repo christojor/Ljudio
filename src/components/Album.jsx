@@ -49,10 +49,11 @@ const Album = () => {
         }
     }, [artist])
 
-    if(isLoading){
-        return(
+    if (isLoading) {
+        return (
             <LoadingSpinner />
-        )}
+        )
+    }
 
     if (artist && album) {
         return (

@@ -15,15 +15,15 @@ const Artist = () => {
     useEffect(async () => {
         let result = await fetch('https://yt-music-api.herokuapp.com/api/yt/artist/' + artistId)
         let data = await result.json()
-        
-        if (data['thumbnails']){
+
+        if (data['thumbnails']) {
             setThumbnailUrl(data.thumbnails[0].url)
         }
-        else{
+        else {
             setThumbnailUrl('/src/no-image.png')
         }
 
-        if (data['products']){
+        if (data['products']) {
             setAlbums(data.products.albums.content)
         }
 
@@ -31,8 +31,8 @@ const Artist = () => {
         setIsLoading(false)
     }, [])
 
-    if(isLoading){
-        return(
+    if (isLoading) {
+        return (
             <LoadingSpinner />
         )
     }
@@ -52,7 +52,7 @@ const Artist = () => {
             </div>
             <div className="BgTextAlbums">
                 <div className="ArtistAlbums">
-                    {albums.map(album => 
+                    {albums.map(album =>
                         <Albums key={album.browseId} album={album} artist={state.artist.name} />
                     )}
                 </div>

@@ -9,20 +9,19 @@ const ShareLink = (props) => {
     let link = ''
 
     const copyLink = () => {
-        if(props.type == 'album' || props.type == 'Album')
-        {
+        if (props.type == 'album' || props.type == 'Album') {
             link = `${window.location.host}/${props.type}/${props.artist}/${props.id}`
         }
-        else{
+        else {
             link = `${window.location.host}/${props.type}/${props.id}`
         }
         navigator.clipboard.writeText(link)
         alert("Link copied to clipboard!")
     }
 
-    return ( 
-        <i className="fas fa-share-alt-square Link" title="Copy link" onClick={ () => copyLink()}></i>
-     );
+    return (
+        <i className="fas fa-share-alt-square Link" title="Copy link" onClick={() => copyLink()}></i>
+    );
 }
- 
+
 export default ShareLink;

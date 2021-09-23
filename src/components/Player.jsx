@@ -9,7 +9,7 @@ const Player = () => {
     const [playing, setPlaying] = useState(false)
     const [duration, setDuration] = useState(0)
     const [seek, setSeek] = useState(0)
-    const [progress, setProgress] = useState({playedSeconds: 0})
+    const [progress, setProgress] = useState({ playedSeconds: 0 })
     const notInitialRender = useRef(false)
     const player = useRef()
 
@@ -17,29 +17,28 @@ const Player = () => {
         if (notInitialRender.current) {
             setPlaying(true)
         } else {
-          notInitialRender.current = true
+            notInitialRender.current = true
         }
-      }, [state.playing])
+    }, [state.playing])
 
+    const playSong = () => {
+        if (Object.keys(state.playing).length !== 0) {
+            setPlaying(true)
+        }
+    }
 
-      const playSong = () =>{
-          if(Object.keys(state.playing).length !== 0){
-              setPlaying(true)
-          }
-      }
-
-    const nextSong = () =>{
-        for(let i = 0; i < state.currentPlaylist.length - 1; i++){
-            if(state.currentPlaylist[i].videoId == state.playing.videoId){
-                dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i+1]})
+    const nextSong = () => {
+        for (let i = 0; i < state.currentPlaylist.length - 1; i++) {
+            if (state.currentPlaylist[i].videoId == state.playing.videoId) {
+                dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i + 1] })
             }
         }
     }
 
-    const previousSong = () =>{
-        for(let i = 0; i < state.currentPlaylist.length; i++){
-            if(state.currentPlaylist[i].videoId == state.playing.videoId && i != 0){
-                dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i-1]})
+    const previousSong = () => {
+        for (let i = 0; i < state.currentPlaylist.length; i++) {
+            if (state.currentPlaylist[i].videoId == state.playing.videoId && i != 0) {
+                dispatch({ type: 'SET_PLAYING', payload: state.currentPlaylist[i - 1] })
             }
         }
     }
@@ -48,7 +47,7 @@ const Player = () => {
         setSeek(data)
         player.current.seekTo(seek)
     }
-    
+
     return (
         <>
             <div className="CurrentSong">
@@ -57,24 +56,24 @@ const Player = () => {
             <div className="Controls">
                 <ReactPlayer
                     ref={player}
-                    url={'http://www.youtube.com/watch?v=' + state.playing.videoId} 
-                    width="0px" height="0px" 
+                    url={'http://www.youtube.com/watch?v=' + state.playing.videoId}
+                    width="0px" height="0px"
                     playing={playing}
                     onDuration={setDuration}
-                    onProgress={setProgress} 
-                    onEnded={ () => nextSong()} 
-                    />
-                    <div className="PlayerButtons">
-                <i className="fas fa-step-backward" onClick={() => previousSong()}></i>
-                <i className="far fa-play-circle" onClick={() => playSong()}></i>
-                <i className="far fa-pause-circle" onClick={() => setPlaying(false)}></i>
-                <i className="fas fa-step-forward" onClick={() => nextSong()}></i>
+                    onProgress={setProgress}
+                    onEnded={() => nextSong()}
+                />
+                <div className="PlayerButtons">
+                    <i className="fas fa-step-backward" onClick={() => previousSong()}></i>
+                    <i className="far fa-play-circle" onClick={() => playSong()}></i>
+                    <i className="far fa-pause-circle" onClick={() => setPlaying(false)}></i>
+                    <i className="fas fa-step-forward" onClick={() => nextSong()}></i>
                 </div>
-                    <ProgressSlider max={duration} value={progress.playedSeconds} onChange={(e) => { onChange(e) }}/>
+                <ProgressSlider max={duration} value={progress.playedSeconds} onChange={(e) => { onChange(e) }} />
             </div>
 
         </>
     );
 }
- 
+
 export default Player
