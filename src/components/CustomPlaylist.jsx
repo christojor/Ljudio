@@ -5,18 +5,18 @@ import ShareLink from './ShareLink'
 
 const CustomPlaylist = (props) => {
 
-    const [state, dispatch] = useContext(Context);
+    const [state, dispatch] = useContext(Context)
 
-    useEffect( () =>{
-        
-    },[state.customPlaylist])
+    useEffect(() => {
+
+    }, [state.customPlaylist])
 
     const setCurrentSongAndPlaylist = () => {
         dispatch({ type: 'SET_PLAYING', payload: props.song })
         dispatch({ type: 'SET_PLAYLIST', payload: [...state.customPlaylist] })
     }
 
-    const removeSongFromPlayList = () =>{
+    const removeSongFromPlayList = () => {
         dispatch({ type: 'REMOVE_FROM_CUSTOM_PLAYLIST', payload: props.song })
         dispatch({ type: 'REMOVE_FROM_PLAYLIST', payload: props.song })
     }
@@ -26,11 +26,18 @@ const CustomPlaylist = (props) => {
         return array;
     }
 
-    const moveSong = (pos) =>{
-        for(var i = 0; i < state.customPlaylist.length; i++){
-            if(state.customPlaylist[i].videoId == props.song.videoId){
-                let newListOrder = movePlaylistElement(state.customPlaylist, i, i + pos)
-                dispatch({ type: 'SET_CUSTOM_PLAYLIST', payload: newListOrder})
+    const moveSong = (pos) => {
+
+        let newListOrder = null;
+
+        for (var i = 0; i < state.customPlaylist.length; i++) {
+            if (state.customPlaylist[i].videoId == props.song.videoId) {
+                if ((i + pos) >= 0) // Check if negative movement is out of bounds (up in list)
+                {
+                    newListOrder = movePlaylistElement(state.customPlaylist, i, i + pos)
+                    i++ // Prevent loop from moving element to end of array on positive movement (down in list)
+                    dispatch({ type: 'SET_CUSTOM_PLAYLIST', payload: newListOrder })
+                }
             }
         }
     }
@@ -46,13 +53,13 @@ const CustomPlaylist = (props) => {
                 </div>
             </div>
             <div className="ResultOptions">
-            <ShareLink type={props.song.type} id={props.song.videoId} />
-            <i className="fas fa-minus-square" title="Remove from playlist" onClick={ () => removeSongFromPlayList()}></i>
-            <i className="fas fa-caret-square-up" title="Move up" onClick={ () => moveSong(-1) }></i>
-            <i className="fas fa-caret-square-down" title="Move down" onClick={ () => moveSong(1) }></i>
+                <ShareLink type={props.song.type} id={props.song.videoId} />
+                <i className="fas fa-minus-square" title="Remove from playlist" onClick={() => removeSongFromPlayList()}></i>
+                <i className="fas fa-caret-square-up" title="Move up" onClick={() => moveSong(-1)}></i>
+                <i className="fas fa-caret-square-down" title="Move down" onClick={() => moveSong(+1)}></i>
             </div>
         </article>
     );
 }
 
-export default CustomPlaylist;
+export default CustomPlaylist
