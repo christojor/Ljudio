@@ -13,7 +13,10 @@ const Songs = (props) => {
     }
 
     const addSongToPlayList = () => {
-        dispatch({ type: 'ADD_TO_CUSTOM_PLAYLIST', payload: props.song })
+
+        if (!state.customPlaylist.filter(e => e.videoId === props.song.videoId).length > 0){ // Check if song is already in playlist
+            dispatch({ type: 'ADD_TO_CUSTOM_PLAYLIST', payload: props.song }) // Add if not in playlist
+        }
     }
 
     return (
