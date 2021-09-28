@@ -26,7 +26,7 @@ const PlayList = () => {
         dispatch({ type: 'SET_CUSTOM_PLAYLIST', payload: [] })
     }
 
-    if (state.customPlaylist.length) {
+    if (state.customPlaylist?.length) {
         return (
             <div className="Playlists">
                 <div>
