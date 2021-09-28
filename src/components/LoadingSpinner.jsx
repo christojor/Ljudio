@@ -1,9 +1,10 @@
 import React from 'react'
+import Spinner from '/src/spinner.svg';
 
 const LoadingSpinner = () => {
     return (
         <div className="Spinner">
-            <img src="/src/spinner.svg" />
+            <img src={Spinner} />
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { Context } from "../Store";
 import ShareLink from "./ShareLink";
 import Albums from "./Albums";
 import LoadingSpinner from "./LoadingSpinner";
+import NoImage from '/src/no-image.png';
 
 const Artist = () => {
     const [state, dispatch] = useContext(Context);
@@ -20,7 +21,7 @@ const Artist = () => {
             setThumbnailUrl(data.thumbnails[0].url)
         }
         else {
-            setThumbnailUrl('/src/no-image.png')
+            setThumbnailUrl(NoImage)
         }
 
         if (data['products']) {

@@ -389,6 +389,10 @@ p{
     width: 15vw;
 }
 
+.Artist .ArtistAlbums article:last-child{
+    border-bottom-color: gray;
+}
+
 .AlbumPage{
     margin: 2vh 40vw;
 }
