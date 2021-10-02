@@ -12,17 +12,20 @@ const PlayList = () => {
 
     const loadPlaylist = () =>{
         if(localStorage.getItem('savedPlaylist') !== null){
-            let rawData = sessionStorage.getItem('savedPlaylist')
+            let rawData = localStorage.getItem('savedPlaylist')
             let parsedData = JSON.parse(rawData)
             dispatch({ type: 'SET_CUSTOM_PLAYLIST', payload: parsedData })
         }
         else{
-            setPlaylistNotSaved('No session playlist could be found.')
+            setPlaylistNotSaved('No playlist saved. Add songs to the playlist and press the "Save Playlist" button to add the playlist to browser storage.')
         }
     }
 
     const deletePlaylist = () =>{
-        localStorage.clear()
+        if(localStorage.getItem('savedPlaylist') !== null)
+        {
+            localStorage.removeItem('savedPlaylist')
+        }
         dispatch({ type: 'SET_CUSTOM_PLAYLIST', payload: [] })
     }
 
@@ -33,7 +36,7 @@ const PlayList = () => {
                     <h2>Custom Playlist</h2>
                     <button id="Save" onClick={ () => savePlaylist() }>Save Playlist</button>
                     <button id="Load" onClick={ () => loadPlaylist() }>Load Playlist</button>
-                    <button id="Load" onClick={ () => deletePlaylist() }>Delete Saved Playlist</button>
+                    <button id="Delete" onClick={ () => deletePlaylist() }>Delete Playlist</button>
                 </div>
                 <div className="FindMusic">
                     <div className="Results">
